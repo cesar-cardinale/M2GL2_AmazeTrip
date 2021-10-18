@@ -1,4 +1,4 @@
-<%@ include file="./header.jsp"%>
+<%@ include file="/WEB-INF/jsp/header.jsp"%>
 
 <div class="container">
 	<h1>Liste des films </h1>
@@ -12,4 +12,4 @@
 	</table>
 </div>
 
-<%@ include file="./footer.jsp"%>
+<%@ include file="/WEB-INF/jsp/footer.jsp"%>
