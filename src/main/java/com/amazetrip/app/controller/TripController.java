@@ -42,12 +42,14 @@ public class TripController {
     }
 
     /**
-     * Montrer les films (GET)
+     * Montrer les trajets (GET)
      */
     @RequestMapping(value = "/trips")
     private ModelAndView getMovies(HttpServletRequest request) {
         //HttpSession session = request.getSession();
         //session.setAttribute("isBefore2000", false);
-        return new ModelAndView("trips");
+        var res = new ModelAndView("trips");
+        res.addObject("trips", dao.findAll());
+        return res;
     }
 }
