@@ -1,5 +1,6 @@
 package com.amazetrip.app.dao;
 
+
 import com.amazetrip.app.model.Trip;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

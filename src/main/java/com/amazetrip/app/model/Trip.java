@@ -1,4 +1,5 @@
-package com.amazetrip.api.model;
+package com.amazetrip.app.model;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
