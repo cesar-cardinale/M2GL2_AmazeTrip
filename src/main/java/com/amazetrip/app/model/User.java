@@ -21,6 +21,17 @@ public class User {
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
     private Set<Comment> comments;
 
+    @OneToMany(mappedBy = "user_trips", fetch=FetchType.EAGER)
+    private Set<Trip> trips;
+
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
+    }
+
     public int getId() {
         return id;
     }

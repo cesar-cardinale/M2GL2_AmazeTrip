@@ -1,6 +1,7 @@
 package com.amazetrip.app.model;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,13 +11,25 @@ public class Trip {
     @Column(name="trip_id")
     private int id = 0;
 
+    private Date creationDate;
+
     @OneToMany(mappedBy = "trip", fetch=FetchType.EAGER)
-    private Set<Comment> comments;
+    private Set<Comment> comments = new HashSet<>();
 
     @ManyToMany()
-    private Set<Place> places;
+    private Set<Place> places = new HashSet<>();
 
-    private Date creationDate;
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;
