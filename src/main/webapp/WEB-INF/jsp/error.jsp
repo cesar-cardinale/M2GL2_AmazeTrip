@@ -1,7 +1,7 @@
-<%@ include file="/WEB-INF/jsp/header.jsp"%>
+<%@ include file="/src/main/webapp/WEB-INF/jsp/header.jsp"%>
 
 <div class="container">
-<h1>Requête erronée.</h1>
+<h1>Requï¿½te erronï¿½e.</h1>
 </div>
 
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
+<%@ include file="/src/main/webapp/WEB-INF/jsp/header.jsp"%>
