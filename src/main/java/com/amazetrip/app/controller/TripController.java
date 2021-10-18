@@ -1,7 +1,6 @@
 package com.amazetrip.app.controller;
 
 import com.amazetrip.app.dao.TripRepository;
-import com.amazetrip.app.model.Trip;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * Un contrôleur pour gérer les trajets.
