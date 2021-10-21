@@ -1,5 +1,6 @@
 package com.amazetrip.api.model;
 
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -11,10 +12,10 @@ public class Trip {
     @Column(name="trip_id")
     private int id = 0;
 
-    @OneToMany(mappedBy = "trip", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "trip", fetch=FetchType.LAZY)
     private Set<Comment> comments;
 
-    @ManyToMany()
+    @ManyToMany( fetch=FetchType.LAZY)
     private Set<Place> places;
 
     private Date creationDate;
