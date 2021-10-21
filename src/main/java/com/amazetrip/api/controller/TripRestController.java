@@ -6,6 +6,7 @@ import com.amazetrip.api.model.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
@@ -42,5 +43,14 @@ public class TripRestController {
     private Iterable<Trip> getAllTrips(){
         return tripRepo.findAll();
     }
+
+    @GetMapping("/places")
+    private Iterable<Place> getPlaces(@RequestParam(value = "id", required = false) Integer id){
+        if(id == null)
+            return placeRepo.findAll();
+        else
+            return placeRepo.findPlacesByTrips_id(id);
+    }
+
 
 }
