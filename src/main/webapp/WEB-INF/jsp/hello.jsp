@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/header.jsp"%>
+<%@ include file="/src/main/webapp/WEB-INFn/webapp/WEB-INF/jsp/header.jsp"%>
 
 <%@page import="java.util.Date"%>
 
@@ -24,4 +24,4 @@
 	
 </div>
 
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
+<%@ include file="/src/main/webapp/WEB-INFn/webapp/WEB-INF/jsp/footer.jsp"%>

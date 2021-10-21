@@ -1,0 +1,12 @@
+h1 { color: #0575E6; }
+
+
+.logo{
+    background-image: url('/images/amaze_trip_logo.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+}
