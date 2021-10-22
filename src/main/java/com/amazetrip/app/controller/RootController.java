@@ -10,4 +10,5 @@ public class RootController
     private String redirectToHomePage(){
         return "redirect:app/trips";
     }
+    private String redirectToPlacePage(){return  "redirect:app/places";}
 }
