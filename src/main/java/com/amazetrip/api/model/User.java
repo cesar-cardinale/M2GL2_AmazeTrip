@@ -1,6 +1,7 @@
 package com.amazetrip.api.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,6 +18,12 @@ public class User {
     private String email;
 
     private String password;
+
+    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY)
+    private List<Trip> trips;
+
+    @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+    private Set<Comment> comments;
 
     public int getId() {
         return id;
