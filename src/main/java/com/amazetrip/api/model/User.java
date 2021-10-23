@@ -1,4 +1,4 @@
-package com.amazetrip.app.model;
+package com.amazetrip.api.model;
 
 import javax.persistence.*;
 import java.util.List;
