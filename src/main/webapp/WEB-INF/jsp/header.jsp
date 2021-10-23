@@ -35,7 +35,7 @@
 					<a class="nav-link active" href="#">Trajets</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
+					<a class="nav-link" href="/app/places">Lieux</a>
 				</li>
 			</ul>
 		</div>
