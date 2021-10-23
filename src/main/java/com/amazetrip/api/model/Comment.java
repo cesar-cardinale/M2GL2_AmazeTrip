@@ -1,4 +1,4 @@
-package com.amazetrip.app.model;
+package com.amazetrip.api.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,8 +21,16 @@ public class Comment {
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
-
+    private String commentText;
     private Date creationDate;
+
+    public String getCommentText() {
+        return commentText;
+    }
+
+    public void setCommentText(String commentText) {
+        this.commentText = commentText;
+    }
 
     public int getId() {
         return id;

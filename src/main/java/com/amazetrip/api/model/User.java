@@ -1,6 +1,7 @@
-package com.amazetrip.app.model;
+package com.amazetrip.api.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,8 +19,23 @@ public class User {
 
     private String password;
 
+    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY)
+    private List<Trip> trips;
+
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
     private Set<Comment> comments;
+    
+    public User(){
+        super();
+    }
+
+    public User(String lastname, String firstname, String email, String password){
+        super();
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -55,13 +71,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
     }
 }
