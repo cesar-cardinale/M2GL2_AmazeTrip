@@ -21,6 +21,7 @@
 </head>
 <body>
 <c:url var="main" value="/" />
+<c:url var="places" value="/" />
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="${main}">
@@ -29,10 +30,10 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Trajets</a>
+					<a class="nav-link active" href="${main}">Trajets</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
+					<a class="nav-link" href="${places}">Lieux</a>
 				</li>
 			</ul>
 		</div>

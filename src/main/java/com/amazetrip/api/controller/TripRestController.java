@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -29,9 +31,11 @@ public class TripRestController {
 
         var trip1 = new Trip();
 
+        trip1.setCreationDate(new Date());
+
         var placeMSaved = placeRepo.save(placeM);
         var placePSaved = placeRepo.save(placeP);
-        trip1.setPlaces(Set.of(placeM, placeP));
+        trip1.setPlaces(List.of(placeM, placeP));
         tripRepo.save(trip1);
         placeMSaved.setTrips(Set.of(trip1));
         placePSaved.setTrips(Set.of(trip1));
