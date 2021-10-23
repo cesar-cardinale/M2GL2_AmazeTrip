@@ -1,7 +1,6 @@
 package com.amazetrip.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Set;
 

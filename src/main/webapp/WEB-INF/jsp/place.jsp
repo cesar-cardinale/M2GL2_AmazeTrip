@@ -1,12 +1,14 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 
 <c:url var="appPlace" value="/appPlace.js" />
 
 <div id="applicationPlace">
     <div class="container">
+        <div v-if="(comments == null)">
         <div class="row">
             <div class="col-12 gy-5">
-                <h1>Liste des lieux {{message}}</h1>
+                <h1>Liste des lieux </h1>
             </div>
         </div>
         <div class="row">
@@ -17,7 +19,20 @@
                         <th>Nb commentaires</th>
                         <th>Action</th>
                     </tr>
+                    <tr v-for="place in places">
+                        <td>{{place['name']}}</td>
+                        <td>0</td>
+                        <td><a href="#" v-on:click="displayDetails(place['id'])">See</a></td>
+                    </tr>
                 </table>
+            </div>
+        </div>
+        </div>
+        <div class="row"  v-if="(comments != null)">
+            <div class="row">
+                <div class="col-12 gy-5">
+                    <h1>Liste des commentaires pour {{placeToDisplay['name']}} </h1>
+                </div>
             </div>
         </div>
     </div>
