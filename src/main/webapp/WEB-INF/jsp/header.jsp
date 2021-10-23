@@ -2,7 +2,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<c:url var="vue_js" value="/webjars/vue/3.2.19/dist/vue.global.js" />
+<c:url var="axios_js" value="/webjars/axios/0.22.0/dist/axios.min.js" />
 <c:url var="bootstrap_css"
 	   value="/webjars/bootstrap/5.1.2/css/bootstrap.min.css" />
 <c:url var="bootstrap_js"
@@ -18,6 +19,8 @@
 	<link rel="stylesheet" href="${bootstrap_css}">
 	<script src="${jquery_js}"></script>
 	<script src="${bootstrap_js}"></script>
+	<script src="${vue_js}"></script>
+	<script src="${axios_js}"></script>
 </head>
 <body>
 <c:url var="main" value="/" />
@@ -32,7 +35,7 @@
 					<a class="nav-link active" href="#">Trajets</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
+					<a class="nav-link" href="/app/places">Lieux</a>
 				</li>
 			</ul>
 		</div>

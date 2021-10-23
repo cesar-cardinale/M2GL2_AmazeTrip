@@ -48,11 +48,9 @@ public class TripController {
         return res;
     }
 
-
-    @GetMapping(value = "/places?id=")
-    private ModelAndView getPlace(@RequestParam int id){
-
-        return new ModelAndView("placedetails");
+    @GetMapping(value = "/places")
+    private String getPlace(){
+        return "place";
     }
 
 }

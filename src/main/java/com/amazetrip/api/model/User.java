@@ -18,9 +18,6 @@ public class User {
 
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
-    private Set<Comment> comments;
-
     public int getId() {
         return id;
     }
@@ -55,13 +52,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
     }
 }
