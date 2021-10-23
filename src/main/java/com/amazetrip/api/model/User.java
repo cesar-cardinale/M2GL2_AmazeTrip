@@ -24,6 +24,18 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
     private Set<Comment> comments;
+    
+    public User(){
+        super();
+    }
+
+    public User(String lastname, String firstname, String email, String password){
+        super();
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
