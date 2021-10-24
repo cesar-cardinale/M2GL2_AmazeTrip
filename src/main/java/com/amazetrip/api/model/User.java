@@ -1,5 +1,8 @@
 package com.amazetrip.api.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -24,6 +27,8 @@ public class User {
 
     @OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
     private Set<Comment> comments;
+
+    private GrantedAuthority authority = new SimpleGrantedAuthority("USER");
     
     public User(){
         super();
@@ -71,5 +76,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public GrantedAuthority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(GrantedAuthority authority) {
+        this.authority = authority;
     }
 }
