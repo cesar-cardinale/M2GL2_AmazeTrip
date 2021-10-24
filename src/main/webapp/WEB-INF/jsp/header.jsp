@@ -42,10 +42,14 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/app/places">Lieux</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/app/users">Users</a>
+				</li>
         <sec:authorize access="isAuthenticated()">
 				<li class="nav-item">
 					<a class="nav-link" href="/app/newtrip">Nouveau Trajet</a>
         </li>
+
         </sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
@@ -63,9 +67,7 @@
 						<a class="btn btn-primary" href="${logout}">Deconnexion</a>
 					</sec:authorize>
         </li>
-				<li class="nav-item">
-					<a class="nav-link" href="/app/users">Users</a>
-				</li>
+
 			</ul>
 		</div>
 	</div>
