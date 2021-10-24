@@ -53,6 +53,10 @@ const applicationPlace = {
                 console.log("Ajout d'une place !");}
             ).catch(error=>{console.log(error)});
             window.location.replace("/app/places");
+        },
+
+        submitPlaceComment : function(){
+                
         }
 
         // Place pour les futures méthodes
