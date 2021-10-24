@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.ServletContext;
+import java.security.Principal;
 
 @Controller()
 @RequestMapping("/app")
@@ -31,9 +32,6 @@ public class UserController {
     public void destroy() {
     }
 
-    /**
-     *  Afficher la liste d'utilisateurs
-     */
     @RequestMapping(value = "/users")
     private ModelAndView getUsers(){
         var res = new ModelAndView("users");
@@ -41,9 +39,6 @@ public class UserController {
         return res;
     }
 
-    /**
-     *  Afficher le profil
-     */
     @RequestMapping("/profil/{id}")
     private ModelAndView getProfil(@PathVariable int id){
         var user = userRepo.findById(id).get();
@@ -52,9 +47,14 @@ public class UserController {
         return res;
     }
 
-    /**
-     *  Affiche la page de création d'un utilisateur
-     */
+    @RequestMapping("/profil")
+    private ModelAndView getCurrentProfil(Principal principal){
+        var user = userRepo.findByEmail(principal.getName());
+        var res = new ModelAndView("profil");
+        res.addObject("profil", user);
+        return res;
+    }
+
     @GetMapping("/users/create")
     private String createUser(){
         return "create-account";
