@@ -8,10 +8,15 @@ import com.amazetrip.api.model.Place;
 import com.amazetrip.api.model.Trip;
 import com.amazetrip.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
+import java.lang.reflect.Array;
+import java.security.Principal;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -72,5 +77,52 @@ public class TripRestController {
         return tripRepo.findAll();
     }
 
+    @GetMapping("/searchtrips/{placename}")
+    private Iterable<Trip> getTripsWithPlace(@PathVariable String placename){
+        var allTrips = tripRepo.findAll();
+        LinkedList<Trip> requestedList = new LinkedList<>();
+        for (Trip trip:allTrips
+             ) {
+            for (Place place: trip.getPlaces()
+                 ) {
+                if (place.getName().equals(placename)){
+                    System.out.println(placename);
+                    requestedList.add(trip);
+                    break;
+                }
+            }
+        }
+        return requestedList;
+    }
 
+    @PostMapping("/newTrip")
+    public Iterable<Trip> postTrip(@RequestBody List<String> places, Principal principal) {
+        System.out.println("JE SUIS LA");
+
+        User user = userRepo.findUserByEmail(principal.getName());
+
+        Place pDep = new Place();
+        Place pArr = new Place();
+
+        if (pDep.getName() == null) {
+            pDep = new Place();
+            pDep.setName(places.get(0));
+        }
+        if (pArr.getName() == null) {
+            pArr = new Place();
+            pArr.setName(places.get(1));
+        }
+        placeRepo.save(pArr);
+        placeRepo.save(pDep);
+
+        Trip newTrip = new Trip();
+
+        newTrip.setUser(user);
+        newTrip.setPlaces(new LinkedList<>());
+        newTrip.getPlaces().add(pDep);
+        newTrip.getPlaces().add(pArr);
+        newTrip.setCreationDate(new Date());
+        tripRepo.save(newTrip);
+        return tripRepo.findAll();
+    }
 }
