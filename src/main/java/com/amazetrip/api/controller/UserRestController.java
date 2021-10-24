@@ -3,12 +3,11 @@ package com.amazetrip.api.controller;
 import com.amazetrip.api.dao.UserRepo;
 import com.amazetrip.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
@@ -38,5 +37,11 @@ public class UserRestController {
     @RequestMapping("/users/{id}")
     public User getProfil(@PathVariable int id){
         return userRepo.findById(id).get();
+    }
+
+    @PostMapping("/users/create")
+    public User postUser(@Valid @RequestBody User u){
+        userRepo.save(u);
+        return u;
     }
 }

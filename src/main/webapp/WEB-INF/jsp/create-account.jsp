@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Email :</label>
+                <label>Password :</label>
                 <input v-model="newAccount.password" class="form-control"
                        v-bind:class="{'is-invalid':errors.password}" type="password" />
                 <div v-if="(errors.password)" class="alert alert-warning">
