@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Entity
 public class Trip {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="trip_id")
@@ -24,6 +25,8 @@ public class Trip {
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
+
+
 
     public int getId() {
         return id;

@@ -55,6 +55,7 @@ const applicationPlace = {
             ).catch(error=>{console.log(error)});
         }
 
+
         // Place pour les futures méthodes
     }
 }

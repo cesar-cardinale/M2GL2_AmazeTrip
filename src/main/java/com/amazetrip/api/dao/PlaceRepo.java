@@ -7,4 +7,5 @@ import java.util.Collection;
 
 public interface PlaceRepo extends CrudRepository<Place, Integer> {
     Collection<Place> findPlacesByTrips_id(int id);
+    Collection<Place> findPlaceByName(String name);
 }
