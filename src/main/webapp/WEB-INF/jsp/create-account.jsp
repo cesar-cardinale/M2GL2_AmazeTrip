@@ -9,7 +9,6 @@
 
     <div>
         <form id="accountApp" method="post" novalidate="true">
-
             <div class="form-group">
                 <label>Firstname :</label>
                 <input v-model="newAccount.firstname" class="form-control"

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,16 +27,6 @@ public class UserController {
     @Autowired
     UserRepo userRepo;
 
-    @PostConstruct
-    public void init() {
-        System.out.println("Start " + this);
-        if (userRepo.count() == 0) {
-            userRepo.save(new User("Durand", "Nicolas", "nicolas@gmail.com", "nicolas123"));
-            userRepo.save(new User("Roman", "Benoit", "benoit@yahoo.com", "benoit123"));
-            userRepo.save(new User("Hexa", "Alex", "alex@hotmail.fr", "alex123"));
-        }
-    }
-
     @PreDestroy
     public void destroy() {
     }
@@ -43,10 +34,10 @@ public class UserController {
     /**
      *  Afficher la liste d'utilisateurs
      */
-    @RequestMapping("/users")
+    @RequestMapping(value = "/users")
     private ModelAndView getUsers(){
         var res = new ModelAndView("users");
-        res.addObject("users", null);
+        res.addObject("users", userRepo.findAll());
         return res;
     }
 
@@ -54,7 +45,8 @@ public class UserController {
      *  Afficher le profil
      */
     @RequestMapping("/profil/{id}")
-    private ModelAndView getProfil(@ModelAttribute User user){
+    private ModelAndView getProfil(@PathVariable int id){
+        var user = userRepo.findById(id).get();
         var res = new ModelAndView("profil");
         res.addObject("profil", user);
         return res;
