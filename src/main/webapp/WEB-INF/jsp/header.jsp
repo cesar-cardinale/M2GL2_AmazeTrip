@@ -57,6 +57,9 @@
 					<sec:authorize access="isAuthenticated()">
 						<a class="btn btn-primary" href="${logout}">Deconnexion</a>
 					</sec:authorize>
+        </li>
+				<li class="nav-item">
+					<a class="nav-link" href="/app/users">Users</a>
 				</li>
 			</ul>
 		</div>
