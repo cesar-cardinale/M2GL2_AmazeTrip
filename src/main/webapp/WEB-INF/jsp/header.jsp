@@ -42,6 +42,11 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/app/places">Lieux</a>
 				</li>
+				<sec:authorize access="isAuthenticated()">
+					<li class="nav-item">
+						<a class="nav-link" href="/app/profil">Profil</a>
+					</li>
+				</sec:authorize>
 				<li>
 					<sec:authorize access="!isAuthenticated()">
 						<a class="btn btn-primary" href="${login}">Se connecter</a>

@@ -5,15 +5,17 @@ import com.amazetrip.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/amazetrip/api")
 public class UserRestController {
     @Autowired
     UserRepo userRepo;
@@ -48,5 +50,10 @@ public class UserRestController {
         u.setPassword(encoder.encode(u.getPassword()));
         userRepo.save(u);
         return HttpStatus.CREATED;
+    }
+
+    @GetMapping("/users/currentUser")
+    public User getCurrentUser(Principal principal){
+       return userRepo.findByEmail(principal.getName());
     }
 }
