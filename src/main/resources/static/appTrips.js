@@ -1,4 +1,4 @@
-const applicationTrips= {
+const appTrips = {
 
     // Préparation des données
     data() {
@@ -76,4 +76,4 @@ const applicationTrips= {
         }
     }
 }
-Vue.createApp(applicationTrips).mount('#applicationTrips');
+Vue.createApp(appTrips).mount('#appTrips');
