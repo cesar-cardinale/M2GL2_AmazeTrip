@@ -5,7 +5,7 @@
             <h1>Liste des utilisateurs</h1>
         </div>
     </div>
-    <c:url var="userProfil" value="/profil" />
+    <c:url var="userProfil" value="/app/profil" />
     <div class="row">
         <div class="col-12 gy-1">
             <table class="table">
