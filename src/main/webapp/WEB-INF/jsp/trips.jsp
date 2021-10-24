@@ -2,9 +2,9 @@
 <%@ taglib prefix="v-on" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 
-<c:url var="appTrips" value="/AppTrips.js" />
+<c:url var="appTrips" value="/appTrips.js" />
 
-<div id="applicationTrips">
+<div id="appTrips">
         <div class="container">
             <div>
                 <div class="row">

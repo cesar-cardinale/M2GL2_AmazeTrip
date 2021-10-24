@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
+import java.lang.reflect.Array;
+import java.security.Principal;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -94,29 +96,21 @@ public class TripRestController {
     }
 
     @PostMapping("/newTrip")
-    public Iterable<Trip> postTrip(@RequestBody String dep) {
+    public Iterable<Trip> postTrip(@RequestBody List<String> places, Principal principal) {
         System.out.println("JE SUIS LA");
-/*
-        User user = userRepo.findUserByFirstname(aut);
-        if (user == null) {
-            user = new User();
-            user.setFirstname(aut);
-            user.setLastname("BBB");
-            user.setEmail("AAA@mail.fr");
-            userRepo.save(user);
-        }
 
+        User user = userRepo.findUserByEmail(principal.getName());
 
-        Place pDep = placeRepo.findPlaceByName(dep).iterator().next();
-        Place pArr = placeRepo.findPlaceByName(arr).iterator().next();
+        Place pDep = new Place();
+        Place pArr = new Place();
 
-        if (pDep == null) {
+        if (pDep.getName() == null) {
             pDep = new Place();
-            pDep.setName(dep);
+            pDep.setName(places.get(0));
         }
-        if (pArr == null) {
+        if (pArr.getName() == null) {
             pArr = new Place();
-            pArr.setName(arr);
+            pArr.setName(places.get(1));
         }
         placeRepo.save(pArr);
         placeRepo.save(pDep);
@@ -124,11 +118,11 @@ public class TripRestController {
         Trip newTrip = new Trip();
 
         newTrip.setUser(user);
+        newTrip.setPlaces(new LinkedList<>());
         newTrip.getPlaces().add(pDep);
         newTrip.getPlaces().add(pArr);
-
+        newTrip.setCreationDate(new Date());
         tripRepo.save(newTrip);
-*/
         return tripRepo.findAll();
     }
 }

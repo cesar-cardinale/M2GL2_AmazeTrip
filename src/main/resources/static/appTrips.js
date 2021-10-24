@@ -70,9 +70,11 @@ const appTrips = {
         addNewTrip: function (){
             console.log("pouloulou")
 
-           /* this.axios.put('/newTrip/',this.newTrip.depart).then(r => {
-                //this.trips = r.data;
-            });*/
+           this.axios.post('/newTrip/',this.placesOfNewTrip).then(r => {
+                this.trips = r.data;
+                window.href="/"
+            });
+
         }
     }
 }
