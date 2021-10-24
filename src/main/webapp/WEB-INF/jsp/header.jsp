@@ -13,6 +13,7 @@
 <c:url var="css" value="/style.css" />
 <c:url var="login" value="/login"/>
 <c:url var="logout" value="/logout"/>
+<c:url var="register" value="/app/users/create"/>
 
 <html>
 <head>
@@ -43,12 +44,13 @@
 				</li>
 				<li>
 					<sec:authorize access="!isAuthenticated()">
-						<a class="btn btn-primary" href="${login}">Login</a>
+						<a class="btn btn-primary" href="${login}">Se connecter</a>
+						<a class="btn btn-primary" href="${register}">Inscription</a>
 					</sec:authorize>
 				</li>
 				<li>
 					<sec:authorize access="isAuthenticated()">
-						<a class="btn btn-primary" href="${logout}">Logout</a>
+						<a class="btn btn-primary" href="${logout}">Deconnexion</a>
 					</sec:authorize>
 				</li>
 			</ul>
