@@ -11,7 +11,7 @@
                 <h1>Liste des lieux </h1>
             </div>
         </div>
-        <button type="button"  v-on:click="newPlace = []" class="btn btn-primary">Ajouter lieu</button>
+        <button type="button"  v-on:click="newPlace = {}" class="btn btn-primary">Ajouter lieu</button>
         <div class="row">
             <div class="col-12 gy-1">
                 <table class="table">

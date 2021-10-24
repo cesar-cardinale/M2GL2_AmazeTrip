@@ -48,7 +48,7 @@ const applicationPlace = {
         },
 
         submitPlace : function (){
-            this.newPlace.trips = {};
+            //this.newPlace = {'name' : 'api'};
             console.log(this.newPlace);
             this.axios.post('/places', this.newPlace).then(r=>{
                 console.log("Ajout d'une place !");}
