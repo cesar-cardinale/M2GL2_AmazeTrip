@@ -45,6 +45,7 @@ const applicationPlace = {
                 });
         }
 
+
         // Place pour les futures méthodes
     }
 }

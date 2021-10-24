@@ -28,6 +28,11 @@ public class PlaceRestController {
         return placeRepo.findById(idP).get();
     }
 
+    @GetMapping("/placebyname/{name}")
+    private Place getTripFromId(@PathVariable String name){
+        return placeRepo.findPlaceByName(name).iterator().next();
+    }
+
     @GetMapping("/place/{idP}/comments")
     private Iterable<Comment> getCommentsFromPlace(@PathVariable(value ="idP", required = false) Integer idP){
         if(idP == null)

@@ -38,6 +38,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/app/places">Lieux</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/app/newtrip">Nouveau Trajet</a>
+				</li>
 			</ul>
 		</div>
 	</div>

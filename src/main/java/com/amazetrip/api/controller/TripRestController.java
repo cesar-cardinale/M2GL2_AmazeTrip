@@ -8,10 +8,13 @@ import com.amazetrip.api.model.Place;
 import com.amazetrip.api.model.Trip;
 import com.amazetrip.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -72,5 +75,60 @@ public class TripRestController {
         return tripRepo.findAll();
     }
 
+    @GetMapping("/searchtrips/{placename}")
+    private Iterable<Trip> getTripsWithPlace(@PathVariable String placename){
+        var allTrips = tripRepo.findAll();
+        LinkedList<Trip> requestedList = new LinkedList<>();
+        for (Trip trip:allTrips
+             ) {
+            for (Place place: trip.getPlaces()
+                 ) {
+                if (place.getName().equals(placename)){
+                    System.out.println(placename);
+                    requestedList.add(trip);
+                    break;
+                }
+            }
+        }
+        return requestedList;
+    }
 
+    @PostMapping("/newTrip")
+    public Iterable<Trip> postTrip(@RequestBody String dep) {
+        System.out.println("JE SUIS LA");
+/*
+        User user = userRepo.findUserByFirstname(aut);
+        if (user == null) {
+            user = new User();
+            user.setFirstname(aut);
+            user.setLastname("BBB");
+            user.setEmail("AAA@mail.fr");
+            userRepo.save(user);
+        }
+
+
+        Place pDep = placeRepo.findPlaceByName(dep).iterator().next();
+        Place pArr = placeRepo.findPlaceByName(arr).iterator().next();
+
+        if (pDep == null) {
+            pDep = new Place();
+            pDep.setName(dep);
+        }
+        if (pArr == null) {
+            pArr = new Place();
+            pArr.setName(arr);
+        }
+        placeRepo.save(pArr);
+        placeRepo.save(pDep);
+
+        Trip newTrip = new Trip();
+
+        newTrip.setUser(user);
+        newTrip.getPlaces().add(pDep);
+        newTrip.getPlaces().add(pArr);
+
+        tripRepo.save(newTrip);
+*/
+        return tripRepo.findAll();
+    }
 }
