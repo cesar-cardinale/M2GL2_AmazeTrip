@@ -11,7 +11,9 @@ const applicationPlace = {
             places: [],
             nbCommentsPerPlace: {},
             placeToDisplay: null,
-            comments: null
+            comments: null,
+            newPlace : null,
+            newComment: null
         }
     },
 
@@ -43,6 +45,14 @@ const applicationPlace = {
             this.axios.get('/place/' + idPlace).then(r=>{
                 this.placeToDisplay = r.data;
                 });
+        },
+
+        submitPlace : function (){
+            this.newPlace.trips = {};
+            console.log(this.newPlace);
+            this.axios.post('/places', this.newPlace).then(r=>{
+                console.log("Ajout d'une place !");}
+            ).catch(error=>{console.log(error)});
         }
 
         // Place pour les futures méthodes

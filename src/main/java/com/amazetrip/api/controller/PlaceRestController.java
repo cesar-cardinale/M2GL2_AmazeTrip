@@ -23,6 +23,12 @@ public class PlaceRestController {
             return placeRepo.findPlacesByTrips_id(id);
     }
 
+    @PostMapping("/places")
+    private Place addNewPlace(@RequestBody Place place){
+        var res = placeRepo.save(place);
+        return res;
+    }
+
     @GetMapping("/place/{idP}")
     private Place getTripFromId(@PathVariable Integer idP){
         return placeRepo.findById(idP).get();
