@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-12 gy-5">
         <h1>Liste des commentaires pour {{placeToDisplay['name']}} </h1>
+
         <button type="button" class="btn btn-primary" v-on:click="newComment = {}">Ajouter commentaire</button>
+
     </div>
 </div>
 <div class="row">
