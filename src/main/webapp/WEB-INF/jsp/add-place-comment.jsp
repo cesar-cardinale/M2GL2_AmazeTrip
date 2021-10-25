@@ -7,7 +7,7 @@
                 <textarea v-model="newComment.commentText" class="form-control">Votre commentaire</textarea>
             </div>
             <div class="form-group">
-                <button v-on:click.prevent="submitPlace()" class="btn btn-primary">
+                <button v-on:click.prevent="submitPlaceComment()" class="btn btn-primary">
                     Valider</button>
                 <button v-on:click="newComment = null" class="btn btn-primary">
                     Annuler</button>
