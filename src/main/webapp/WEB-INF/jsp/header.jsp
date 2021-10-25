@@ -56,9 +56,6 @@
 						<a class="nav-link" href="/app/profil">Profil</a>
 					</li>
 				</sec:authorize>
-				<li class="nav-item">
-					<a class="nav-link" href="/app/users">Users</a>
-				</li>
 				<li>
 					<sec:authorize access="!isAuthenticated()">
 						<a class="btn btn-primary" href="${login}">Se connecter</a>
@@ -70,7 +67,6 @@
 						<a class="btn btn-primary" href="${logout}">Deconnexion</a>
 					</sec:authorize>
         </li>
-
 
 			</ul>
 		</div>
