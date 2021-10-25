@@ -8,7 +8,7 @@ const accountApp = {
     mounted(){
         console.log("AccountApp mounted ");
         this.axios = axios.create({
-            baseURL: 'http://localhost:8081/api/',
+            baseURL: 'http://localhost:8081/amazetrip/api/',
             timeout: 1000,
             headers: { 'Content-Type': 'application/json' },
         });
@@ -34,8 +34,7 @@ const accountApp = {
             }
             if(error) return;
             this.axios.post('/users/create/', this.newAccount).then(r => {
-                console.log(r)
-                //window.location.href = "/"
+                window.location.href = "/"
             });
         }
     }
