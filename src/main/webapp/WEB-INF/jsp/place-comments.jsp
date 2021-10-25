@@ -21,5 +21,7 @@
     </div>
 </div>
 <div class="row" v-if="newComment!=null">
+
     <%@ include file="/WEB-INF/jsp/add-place-comment.jsp"%>
+
 </div>

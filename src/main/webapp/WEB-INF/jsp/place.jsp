@@ -34,6 +34,7 @@
         </div>
         <div v-if="(newPlace != null)">
             <%@ include file="/WEB-INF/jsp/add-place.jsp"%>
+
         </div>
     </div>
 </div>

@@ -7,10 +7,8 @@
                 <input v-model="newPlace.name" class="form-control"/>
             </div>
             <div class="form-group">
-                <button v-on:click.prevent="submitPlace()" class="btn btn-primary">
-                    Valider</button>
-                <button v-on:click="newPlace = null" class="btn btn-primary">
-                    Annuler</button>
+                <button v-on:click.prevent="submitPlace()" class="btn btn-primary">Valider</button>
+                <button v-on:click="newPlace = null" class="btn btn-primary">Annuler</button>
             </div>
         </form>
     </div>

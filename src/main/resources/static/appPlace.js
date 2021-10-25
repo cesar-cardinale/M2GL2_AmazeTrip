@@ -56,7 +56,7 @@ const applicationPlace = {
         },
 
         submitPlaceComment : function(){
-                
+            // Add body
         }
 
 
