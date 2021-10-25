@@ -30,7 +30,9 @@
         </div>
         </div>
         <div class="row"  v-if="(comments != null)">
+
             <%@ include file="/WEB-INF/jsp/place-comments.jsp"%>
+
         </div>
         <div v-if="(newPlace != null)">
             <%@ include file="/WEB-INF/jsp/add-place.jsp"%>
